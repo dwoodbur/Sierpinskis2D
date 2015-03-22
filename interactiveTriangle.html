@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Interactive Triangle</title>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute vec4 vPosition;
+
+void
+main()
+{
+	
+    gl_Position = vPosition;
+
+}
+
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+uniform vec4 u_FragColor;
+
+void
+main()
+{
+	
+    gl_FragColor = u_FragColor;
+    
+}
+
+</script>
+
+
+<script type="text/javascript" src="Common/webgl-utils.js"></script>
+<script type="text/javascript" src="Common/initShaders.js"></script>
+<script type="text/javascript" src="Common/MV.js"></script>
+<script type="text/javascript" src="interactiveTriangle.js"></script>
+</head>   
+
+<body>
+
+
+
+<canvas id="gl-canvas" width="512" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<br>
+First slider divides, second randomizes.<br>
+Press "Redraw" to generate a new triangle.<br>
+Enter 'r', 'g', 'b' to change colors, or use sliders.<br>
+Click and drag to move the triangle with physics (if on).<br>
+Draw behind gasket (if on).
+<div>
+Subdivisions 1 <input id="subdivisions" type="range"
+ min="1" max="9" step="1" value="5" />
+ 9
+</div>
+
+<div>
+Variance 0.0 <input id="variance" type="range"
+ min="0.0" max=".1" step=".02" value=".02" />
+ 0.1
+</div>
+
+<div>
+Red 0.0 <input id="rColor" type="range"
+ min="0.0" max="1.0" step=".05" value="1.0" />
+ 1.0
+</div>
+<div>
+Green 0.0 <input id="gColor" type="range"
+ min="0.0" max="1.0" step=".05" value="0.0" />
+ 1.0
+</div>
+<div>
+Blue 0.0 <input id="bColor" type="range"
+ min="0.0" max="1.0" step=".05" value="0.0" />
+ 1.0
+</div>
+
+<div>
+<button id="reset">Redraw</button>
+<button id="mode">Draw Mode</button>
+</div>
+
+</body>
+</html>
